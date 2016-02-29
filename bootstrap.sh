@@ -11,7 +11,7 @@ sudo add-apt-repository ppa:marutter/rrutter
 gpg --keyserver pgpkeys.mit.edu --recv-key 51716619E084DAB9
 gpg -a --export 51716619E084DAB9 | sudo apt-key add -
 # comment out the following line if doing vagrant reload --provision otherwise it will keep adding duplicates to sources.list
-# sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu precise/" >> /etc/apt/sources.list'
+sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu precise/" >> /etc/apt/sources.list'
 sudo apt-get update
 sudo apt-get -y install r-base r-base-dev
 # outdated codetools was preventing installation of all necessary R packages
