@@ -37,6 +37,6 @@ wget http://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd
 sudo gdebi shiny-server-1.4.2.786-amd64.deb
 sudo dpkg -i *.deb
 rm *.deb
-# this may throw an error if symlink to apps/ already exists from initiat provision
+# this may throw an error if symlink to apps/ already exists from initial provision
 sudo ln -s /vagrant/apps /srv/shiny-server
 sudo usermod -a -G vagrant shiny
