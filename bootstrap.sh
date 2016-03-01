@@ -30,7 +30,7 @@ sudo su - -c "R -e \"install.packages(c('broom', 'car', 'd3heatmap', \
   'svglite', 'threejs', 'tidyr', 'tm', 'viridis', 'wordcloud', \
   'zoo'), repos='http://cran.rstudio.com/', dep = TRUE)\""
 # Add Bioconductor packages here - note https not supported
-#sudo su - -c "R -e \"source('http://bioconductor.org/biocLite.R'); biocLite()\""
+sudo su - -c "R -e \"source('http://bioconductor.org/biocLite.R'); biocLite()\""
 # install shiny server
 sudo apt-get -y install gdebi-core
 wget http://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb
