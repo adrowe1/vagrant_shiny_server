@@ -10,7 +10,7 @@ Placing app code inside the apps/ directory
 located alongside the Vagrantfile will serve
 the app at localhost:3838/apps/
 
-See [localhost:3838/apps/test/](localhost:3838/apps/test/)
+See [localhost:3838/apps/test/](http://localhost:3838/apps/test/)
 to confirm that this is functioning correctly.
 
 TODO:
