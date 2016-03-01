@@ -19,6 +19,8 @@ sudo apt-get -y install r-base r-base-dev
 sudo su - -c "R -e \"install.packages('codetools', repos='http://cran.rstudio.com/', dep = TRUE)\""
 sudo su - -c "R -e \"install.packages('shiny', repos='http://cran.rstudio.com/', dep = TRUE)\""
 # add a pile of useful packages straight away
+# This takes a while as there are a bunch of Rcpp packages to compile
+# Also requires a vm with at least 2Gb ram otherwise RCppEigen compilation hangs
 sudo su - -c "R -e \"install.packages(c('broom', 'car', 'd3heatmap', \
   'd3Network', 'DiagrammeR', 'dplyr', 'DT', 'genoPlotR', 'GGally', \
   'ggthemes', 'gplots', 'htmlwidgets', 'leaflet', 'lubridate', 'moments', \
@@ -27,11 +29,14 @@ sudo su - -c "R -e \"install.packages(c('broom', 'car', 'd3heatmap', \
   'rvest', 'shinyAce', 'shinyBS', 'shinydashboard', 'shinyFiles', \
   'svglite', 'threejs', 'tidyr', 'tm', 'viridis', 'wordcloud', \
   'zoo'), repos='http://cran.rstudio.com/', dep = TRUE)\""
+# Add Bioconductor packages here - note https not supported
+#sudo su - -c "R -e \"source('http://bioconductor.org/biocLite.R'); biocLite()\""
 # install shiny server
 sudo apt-get -y install gdebi-core
 wget http://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb
 sudo gdebi shiny-server-1.4.2.786-amd64.deb
 sudo dpkg -i *.deb
 rm *.deb
+# this may throw an error if symlink to apps/ already exists from initiat provision
 sudo ln -s /vagrant/apps /srv/shiny-server
 sudo usermod -a -G vagrant shiny
